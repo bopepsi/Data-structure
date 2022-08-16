@@ -18,15 +18,15 @@ class Stack {
             this.first = node;
             this.last = node;
         } else {
-            node.next = this.last;
-            this.last = node;
+            node.next = this.first;
+            this.first = node;
         }
         this.size++;
         return this.size;
     }
 
     pop() {
-        let node = this.last;
+        let node = this.first;
         if (this.size === 0) return;
         if (this.size === 1) {
             this.first = null;
@@ -34,7 +34,7 @@ class Stack {
             this.size--;
             return node;
         }
-        this.last = node.next;
+        this.first = node.next;
         node.next = null;
         this.size--;
         return node;
